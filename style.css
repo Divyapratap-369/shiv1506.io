@@ -674,7 +674,11 @@ button {
 .nav-toggle-mobile {
     display: none;
 }
-
+@media screen and (max-width: 780px) {
+    #classic-extras-list, .bento-advisories{
+        display: none !important;
+    }
+}
 @media (max-width: 780px) {
     .nav-links {
         position: fixed;
