@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-layout="classic">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divya Pratap Singh — Cybersecurity Analyst &amp; Penetration Tester</title>
+  <meta name="description" content="Portfolio of Divya Pratap Singh, cybersecurity analyst and penetration tester specializing in offensive security, threat hunting, and incident response.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+
+  <!-- BOOT SEQUENCE OVERLAY -->
+  <div id="boot-overlay">
+    <div id="boot-lines"></div>
+    <button id="boot-skip">SKIP [ENTER]</button>
+  </div>
+
+  <!-- TOP CONTROLS -->
+  <div id="controls">
+    <div class="layout-switch" role="group" aria-label="Layout mode">
+      <button id="btn-classic" class="active" aria-pressed="true">CLASSIC</button>
+      <button id="btn-modern" aria-pressed="false">MODERN</button>
+    </div>
+    <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle theme">
+      <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+    <button id="terminal-toggle" class="icon-btn" aria-label="Open interactive terminal" title="Interactive terminal" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4 17 6-5-6-5M12 19h8"/></svg>
+    </button>
+  </div>
+
+  <!-- ==========================================
+       CLASSIC LAYOUT (Untouched)
+       ========================================== -->
+  <div id="classic-layout">
+    <nav id="classic-nav">
+      <div class="nav-inner">
+        <div class="nav-logo"><span class="dot"></span> DPS<span class="mono" style="color:var(--text-dim)">.sec</span></div>
+        <ul class="nav-links" id="classic-nav-links">
+          <li><a href="#about" class="active">about</a></li>
+          <li><a href="#experience">experience</a></li>
+          <li><a href="#projects">projects</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+        <button class="nav-toggle-mobile" id="classic-nav-toggle" aria-label="Open navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ABOUT -->
+      <section id="about" class="section hero">
+        <div class="container hero-grid">
+          <div class="reveal-left">
+            <span class="prompt-label">whoami<span class="blink-cursor"></span></span>
+            <h1 class="hero-name glitch" data-text="Divya Pratap Singh">Divya Pratap Singh</h1>
+            <p class="hero-role">Cybersecurity Analyst &amp; Penetration Tester</p>
+            <p class="hero-desc">I break systems responsibly so they can't be broken maliciously. Two years across red-team engagements, threat hunting, and incident response — turning raw attack surface into a defensible one.</p>
+            <div class="hero-cta">
+              <a href="#contact" class="btn">Get in touch →</a>
+              <a href="#projects" class="btn ghost">View projects</a>
+            </div>
+            <div class="hero-badges">
+              <span class="badge on">OSCP</span>
+              <span class="badge on">CEH</span>
+              <span class="badge">Security+</span>
+              <span class="badge">CISSP — in progress</span>
+            </div>
+          </div>
+          <div class="reveal-right terminal-card">
+            <div class="term-bar">
+              <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+              <span class="term-title">divya@secops: ~</span>
+            </div>
+            <div class="terminal-body">
+              <div class="line"><span class="muted">$</span> nmap -sV --top-ports 20 target.local</div>
+              <div class="line muted">Starting scan…</div>
+              <div class="line">22/tcp  <span class="cyan">open</span>  ssh</div>
+              <div class="line">443/tcp <span class="cyan">open</span>  https</div>
+              <div class="line muted">Scan complete. 0 critical findings.</div>
+              <div class="line" style="margin-top:14px;"><span class="muted">$</span> cat mission.md</div>
+              <div class="line muted">Make security legible. Ship fixes,</div>
+              <div class="line muted">not just findings.<span class="cur"></span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE & SKILLS -->
+      <section id="experience" class="section alt">
+        <div class="container">
+          <span class="prompt-label reveal">cat skills.json --pretty</span>
+          <h2 class="section-title reveal">Experience &amp; Skills</h2>
+          <p class="section-sub reveal">A resume-style breakdown of tooling, frameworks, and the roles that shaped them.</p>
+
+          <div class="skills-grid stagger">
+            <div class="skill-card">
+              <h4>⚔ Offensive Security</h4>
+              <ul>
+                <li>Penetration testing (web, network, wireless)</li>
+                <li>Red teaming &amp; adversary simulation</li>
+                <li>Social engineering assessments</li>
+                <li>OWASP Top 10 exploitation &amp; remediation</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <h4>🛡 Defensive Security</h4>
+              <ul>
+                <li>Threat hunting &amp; SIEM monitoring</li>
+                <li>Incident response &amp; digital forensics</li>
+                <li>Detection engineering (MITRE ATT&amp;CK)</li>
+                <li>Vulnerability management programs</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <h4>🧰 Tools &amp; Frameworks</h4>
+              <ul>
+                <li>Nmap · Metasploit · Burp Suite · Wireshark</li>
+                <li>Kali Linux · Cobalt Strike (authorized testing)</li>
+                <li>Splunk · Elastic (ELK) · Azure Sentinel</li>
+                <li>NIST CSF · OWASP · MITRE ATT&amp;CK</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <h4>☁ Cloud &amp; Infrastructure</h4>
+              <ul>
+                <li>AWS &amp; Azure security hardening</li>
+                <li>Zero Trust architecture design</li>
+                <li>Container &amp; Kubernetes security</li>
+                <li>IAM policy auditing</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cert-row reveal">
+            <span class="cert-chip"><span class="status"></span> OSCP — Offensive Security Certified Professional</span>
+            <span class="cert-chip"><span class="status"></span> CEH — Certified Ethical Hacker</span>
+            <span class="cert-chip"><span class="status"></span> CompTIA Security+</span>
+            <span class="cert-chip"><span class="status pending"></span> CISSP — in progress</span>
+          </div>
+
+          <div class="timeline reveal">
+            <div class="timeline-item">
+              <div class="timeline-meta">2024 — PRESENT</div>
+              <h4>Security Analyst</h4>
+              <div class="org">DXC Technology</div>
+              <ul>
+                <li>Lead red-team engagements across 15+ client environments</li>
+                <li>Cut mean detection time by 38% through custom SIEM correlation rules</li>
+                <li>Mentor a team of 3 junior analysts on offensive tooling</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-meta">2022 — 2024</div>
+              <h4>Penetration Tester</h4>
+              <div class="org">Global Logic</div>
+              <ul>
+                <li>Delivered 50+ web, network, and wireless penetration tests</li>
+                <li>Built internal exploit-dev playbooks adopted org-wide</li>
+                <li>Presented findings directly to client engineering leadership</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-meta">2019 — 2021</div>
+              <h4>SOC Analyst</h4>
+              <div class="org">Cascade Systems</div>
+              <ul>
+                <li>Triaged 200+ SIEM alerts weekly across a 24/7 rotation</li>
+                <li>Authored incident response runbooks still in use today</li>
+                <li>Migrated legacy log pipeline to Elastic Stack</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section">
+        <div class="container">
+          <span class="prompt-label reveal">ls projects/ --filter</span>
+          <h2 class="section-title reveal">Projects Showcase</h2>
+          <p class="section-sub reveal">Selected work across offensive tooling, defensive infrastructure, and cryptography.</p>
+
+          <div class="filter-row reveal" id="classic-filters" data-target="classic-projects-grid"></div>
+          <div class="projects-grid" id="classic-projects-grid"></div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section alt">
+        <div class="container">
+          <span class="prompt-label reveal">nc -l -p 443 &amp;&amp; listen</span>
+          <h2 class="section-title reveal">Contact &amp; Details</h2>
+          <p class="section-sub reveal">Open to red-team engagements, security audits, and speaking opportunities.</p>
+
+          <div class="contact-grid">
+            <div class="contact-list reveal-left" id="classic-contact-list"></div>
+            <div class="extras-list reveal-right" id="classic-extras-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-socials" id="classic-footer-socials"></div>
+      <p class="footer-note">© 2026 Divya Pratap Singh — built with defense in depth.</p>
+    </footer>
+  </div>
+
+  <!-- ==========================================
+       MODERN LAYOUT (Zero-Nav Bento Canvas)
+       ========================================== -->
+  <div id="modern-layout">
+    
+    <!-- Minimalist Top Bar -->
+    <header class="modern-header">
+      <div class="nav-logo"><span class="dot"></span> DPS<span class="mono" style="color:var(--text-dim)">.sec</span></div>
+      <div class="modern-status"><span class="status-dot"></span> SOC DASHBOARD ONLINE</div>
+    </header>
+
+    <!-- Master Bento Grid -->
+    <main class="bento-container reveal in">
+      
+      <!-- 1. Hero Bio (Span 2x2) -->
+      <div class="bento-card span-2x2 bento-hero">
+        <div class="bento-status-pill"><span class="status-dot"></span> AVAILABLE FOR RED TEAM AUDITS</div>
+        <h1 class="hero-name glitch" data-text="Divya Pratap Singh">Divya Pratap Singh</h1>
+        <p class="hero-role" style="margin-bottom: 12px;">Cybersecurity Analyst &amp; Penetration Tester</p>
+        <p class="hero-desc" style="font-size: 0.95rem; margin-bottom: 24px;">Four years securing systems across offense and defense. I break systems responsibly so they can't be broken maliciously. Translating threat intelligence into actionable fixes.</p>
+        <div class="hero-cta">
+          <button class="btn" onclick="scrollToBento('bento-contact')">Get in Touch →</button>
+        </div>
+      </div>
+
+      <!-- 2. MTTR Stat (Span 1x1) -->
+      <div class="bento-card bento-stat">
+        <div class="stat-val">38%</div>
+        <div class="stat-lbl">Reduction in MTTR via custom SIEM rules</div>
+      </div>
+
+      <!-- 3. Pen Tests Stat (Span 1x1) -->
+      <div class="bento-card bento-stat">
+        <div class="stat-val">50+</div>
+        <div class="stat-lbl">Penetration tests delivered successfully</div>
+      </div>
+
+      <!-- 4. Certifications (Span 1x1) -->
+      <div class="bento-card bento-list">
+        <h4 class="bento-card-title">CREDENTIALS</h4>
+        <ul class="bento-cert-list">
+          <li class="active"><span class="dot"></span> OSCP</li>
+          <li class="active"><span class="dot"></span> CEH</li>
+          <li><span class="dot off"></span> CompTIA Security+</li>
+          <li><span class="dot pending"></span> CISSP (In Progress)</li>
+        </ul>
+      </div>
+
+      <!-- 5. Security Arsenal (Span 1x1) -->
+      <div class="bento-card bento-tags">
+        <h4 class="bento-card-title">PRIMARY ARSENAL</h4>
+        <div class="tag-cloud">
+          <span class="tag">Metasploit</span>
+          <span class="tag">Burp Suite Pro</span>
+          <span class="tag">Cobalt Strike</span>
+          <span class="tag">Splunk</span>
+          <span class="tag">Elastic (ELK)</span>
+          <span class="tag">AWS / Azure</span>
+        </div>
+      </div>
+
+      <!-- 6. Career Timeline (Span 2x2) -->
+      <div class="bento-card span-2x2 bento-timeline">
+        <h4 class="bento-card-title">SYSTEM EVENT LOG // EXPERIENCE</h4>
+        <div class="bento-log-entries">
+          <div class="log-entry">
+            <span class="log-time">[2024 - PRESENT]</span>
+            <div class="log-details">
+              <strong>Security Analyst @ DXC Technology</strong>
+              <span>Lead red-team engagements across 15+ client environments. Mentoring junior analysts.</span>
+            </div>
+          </div>
+          <div class="log-entry">
+            <span class="log-time">[2022 - 2024]</span>
+            <div class="log-details">
+              <strong>Penetration Tester @ Global Logic</strong>
+              <span>Authored internal exploit-dev playbooks adopted org-wide.</span>
+            </div>
+          </div>
+          <div class="log-entry">
+            <span class="log-time">[2019 - 2022]</span>
+            <div class="log-details">
+              <strong>SOC Analyst @ Cascade Systems</strong>
+              <span>Triaged 200+ SIEM alerts weekly. Migrated legacy log pipelines.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Hero Project (Span 2x2) -->
+      <div class="bento-card span-2x2 bento-project-hero clickable" onclick="openProjectModal('ShadowScan')">
+        <div class="flex-between">
+          <span class="bento-card-title" style="color: var(--accent);">[ FEATURED PROJECT ]</span>
+          <span class="mono" style="font-size: 0.7rem; color: var(--text-muted);">Click for details ↗</span>
+        </div>
+        <h3 style="margin: 12px 0 8px;">ShadowScan</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">Automated internal vulnerability scanner wrapping Nmap with custom Python scoring to flag critical exposure paths before quarterly audits.</p>
+        <div class="bento-terminal">
+          <code><span class="muted">$</span> nmap -sV --top-ports 20 target.local</code>
+          <code class="cyan">[+] 3 High Risk Hosts Detected.</code>
+        </div>
+      </div>
+
+      <!-- 8. Secondary Projects Vault (Span 2x1) -->
+      <div class="bento-card span-2x1 bento-vault">
+        <h4 class="bento-card-title">PROJECTS VAULT</h4>
+        <div class="vault-grid">
+          <div class="vault-item clickable" onclick="openProjectModal('CipherVault')">
+            <strong>CipherVault</strong>
+            <span>AES-256 CLI Encryption</span>
+          </div>
+          <div class="vault-item clickable" onclick="openProjectModal('SOC Dashboard')">
+            <strong>SOC Dashboard</strong>
+            <span>ELK Anomaly Detection</span>
+          </div>
+          <div class="vault-item clickable" onclick="openProjectModal('SecureChat')">
+            <strong>SecureChat</strong>
+            <span>Double-Ratchet E2EE</span>
+          </div>
+          <div class="vault-item clickable" onclick="openProjectModal('PhishNet')">
+            <strong>PhishNet</strong>
+            <span>Simulation Platform</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Contact & Hub (Span 2x2) -->
+      <div id="bento-contact" class="bento-card span-2x2 bento-contact">
+        <h4 class="bento-card-title">COMMUNICATIONS HUB</h4>
+        <div class="bento-terminal socket-listener">
+          <code><span class="muted">$</span> nc -l -p 443 && listen</code>
+          <code class="muted">Socket open. Awaiting connection...</code>
+        </div>
+        
+        <div class="bento-action-grid">
+          <!-- Copy Email Action -->
+          <button class="bento-action-btn" onclick="copyEmail()">
+            <span class="bento-action-label">EMAIL</span>
+            <span class="bento-action-val">darknightrise1506@protonmail.com</span>
+            <span class="bento-action-icon">📧</span>
+          </button>
+          
+          <!-- New Tab Actions -->
+          <a class="bento-action-btn" href="https://github.com/Divyapratap-369" target="_blank" rel="noopener">
+            <span class="bento-action-label">GITHUB</span>
+            <span class="bento-action-val">github.com/Divyapratap-369</span>
+            <span class="bento-action-icon">↗</span>
+          </a>
+          <a class="bento-action-btn" href="https://linkedin.com/in/divya-pratap-singh-58a8851b8/" target="_blank" rel="noopener">
+            <span class="bento-action-label">LINKEDIN</span>
+            <span class="bento-action-val">linkedin.com/in/divya-pratap-singh-58a8851b8/</span>
+            <span class="bento-action-icon">↗</span>
+          </a>
+        </div>
+        
+        <div class="bento-advisories">
+          <span class="mono" style="font-size: 0.65rem; color: var(--accent-cyan); display:block; margin-bottom: 6px;">[ ADVISORIES & TALKS ]</span>
+          <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+            <!-- <strong>BSides Delhi (2024):</strong> Red Teaming in Zero Trust Environments<br> -->
+            <strong>InfoSec Write-ups (2023):</strong> Practical Threat Hunting with MITRE ATT&CK
+          </p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- IN-PAGE PROJECT MODAL (Hidden by default) -->
+  <div id="project-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content bento-card">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close modal">&times;</button>
+      <span class="p-cat" id="modal-cat" style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--accent-cyan);">CATEGORY</span>
+      <h2 id="modal-title" style="margin: 8px 0;">Project Title</h2>
+      <p id="modal-desc" style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Project description...</p>
+      <div class="tag-row" id="modal-tags" style="margin-bottom: 24px;"></div>
+      <a id="modal-link" href="#" target="_blank" class="btn" style="width: 100%; justify-content: center;">View Project / Writeup ↗</a>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast-msg hidden">Copied to clipboard!</div>
+
+  <!-- LIVE INTERACTIVE TERMINAL -->
+  <section id="live-terminal" class="live-terminal hidden" aria-label="Interactive terminal" aria-hidden="true">
+    <div class="live-terminal-window" role="dialog" aria-modal="true" aria-labelledby="live-terminal-title">
+      <header class="live-terminal-bar">
+        <div><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+        <span id="live-terminal-title">portfolio terminal <span id="terminal-mode">basic</span></span>
+        <button id="terminal-close" aria-label="Close terminal">&times;</button>
+      </header>
+      <div id="terminal-output" class="live-terminal-output" aria-live="polite"></div>
+      <form id="terminal-form" class="live-terminal-input-row" autocomplete="off">
+        <label id="terminal-prompt" for="terminal-input">visitor@portfolio:~$</label>
+        <input id="terminal-input" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Terminal command">
+      </form>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+  <script src="terminal.js"></script>
+</body>
+</html>
