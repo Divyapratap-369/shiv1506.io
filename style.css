@@ -614,7 +614,8 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 24px;
+    /* Reserve room for the fixed controls pill at the upper-right. */
+    padding: 16px 190px 16px 24px;
     max-width: 1120px;
     margin: 0 auto;
 }
@@ -674,11 +675,22 @@ button {
 .nav-toggle-mobile {
     display: none;
 }
-@media screen and (max-width: 780px) {
-    #classic-extras-list, .bento-advisories{
-        display: none !important;
-    }
+
+/* Mobile hamburger-to-X transition. */
+.nav-toggle-mobile span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin: 3px 0;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform .24s ease, opacity .18s ease;
 }
+
+.nav-toggle-mobile.is-open span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.nav-toggle-mobile.is-open span:nth-child(2) { opacity: 0; }
+.nav-toggle-mobile.is-open span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
 @media (max-width: 780px) {
     .nav-links {
         position: fixed;
@@ -709,6 +721,7 @@ button {
         border-radius: 6px;
         background: transparent;
         color: var(--text);
+        flex-direction: column;
     }
 }
 
@@ -1815,6 +1828,11 @@ html[data-layout="modern"] #modern-layout {
         text-decoration: underline;
     }
 }
+@media screen and (max-width: 780px) {
+    #classic-extras-list, .bento-advisories{
+        display: none !important;
+    }
+}
 /* 2. STANDARD MOBILE & iPAD MINI (iPhones, Androids) - Max Width 780px */
 @media (max-width: 780px) {
 
@@ -2031,3 +2049,16 @@ html[data-theme="light"] #icon-sun {
     z-index: 999999 !important;
     /* Must be higher than the 99990 of the nav links */
 }
+
+/* The fixed desktop controls occupy the upper-right corner. Keep the
+   Modern layout's status badge clear of that space. */
+html[data-layout="modern"] .modern-header { padding-right: 190px; }
+
+@media (max-width: 780px) {
+    html[data-layout="modern"] .modern-header { padding-right: 24px; }
+}
+
+@media (max-width: 780px) {
+    #classic-nav .nav-inner { padding-right: 24px; }
+}
+`n
