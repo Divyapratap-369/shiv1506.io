@@ -13,6 +13,7 @@
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="terminal.css">
 </head>
 <body>
 
@@ -32,6 +33,9 @@
       <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
     </button>
+    <button id="terminal-toggle" class="icon-btn" aria-label="Open interactive terminal" title="Interactive terminal" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4 17 6-5-6-5M12 19h8"/></svg>
+    </button>
   </div>
 
   <!-- ==========================================
@@ -47,8 +51,8 @@
           <li><a href="#projects">projects</a></li>
           <li><a href="#contact">contact</a></li>
         </ul>
-        <button class="nav-toggle-mobile" id="classic-nav-toggle" aria-label="Menu">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <button class="nav-toggle-mobile" id="classic-nav-toggle" aria-label="Open navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </nav>
@@ -371,7 +375,7 @@
         <div class="bento-advisories">
           <span class="mono" style="font-size: 0.65rem; color: var(--accent-cyan); display:block; margin-bottom: 6px;">[ ADVISORIES & TALKS ]</span>
           <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
-            <strong>BSides Delhi (2024):</strong> Red Teaming in Zero Trust Environments<br>
+            <!-- <strong>BSides Delhi (2024):</strong> Red Teaming in Zero Trust Environments<br> -->
             <strong>InfoSec Write-ups (2023):</strong> Practical Threat Hunting with MITRE ATT&CK
           </p>
         </div>
@@ -395,7 +399,24 @@
   <!-- TOAST NOTIFICATION -->
   <div id="toast" class="toast-msg hidden">Copied to clipboard!</div>
 
+  <!-- LIVE INTERACTIVE TERMINAL -->
+  <section id="live-terminal" class="live-terminal hidden" aria-label="Interactive terminal" aria-hidden="true">
+    <div class="live-terminal-window" role="dialog" aria-modal="true" aria-labelledby="live-terminal-title">
+      <header class="live-terminal-bar">
+        <div><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+        <span id="live-terminal-title">portfolio terminal <span id="terminal-mode">basic</span></span>
+        <button id="terminal-close" aria-label="Close terminal">&times;</button>
+      </header>
+      <div id="terminal-output" class="live-terminal-output" aria-live="polite"></div>
+      <form id="terminal-form" class="live-terminal-input-row" autocomplete="off">
+        <label id="terminal-prompt" for="terminal-input">visitor@portfolio:~$</label>
+        <input id="terminal-input" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Terminal command">
+      </form>
+    </div>
+  </section>
+
   <!-- JavaScript -->
   <script src="script.js"></script>
+  <script src="terminal.js"></script>
 </body>
 </html>
