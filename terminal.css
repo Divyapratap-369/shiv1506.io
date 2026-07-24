@@ -1,0 +1,166 @@
+/* Interactive terminal overlay — kept separate from site styling. */
+.live-terminal {
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--scrim);
+  backdrop-filter: blur(8px);
+}
+.live-terminal.hidden {
+  display: none;
+}
+.live-terminal-window {
+  width: min(860px, 100%);
+  height: min(620px, calc(100vh - 48px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border-bright);
+  border-radius: 12px;
+  background: var(--bg-panel);
+  box-shadow: var(--shadow);
+  font-family: "JetBrains Mono", monospace;
+}
+.live-terminal-bar {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bento-element-bg);
+}
+.live-terminal-bar .term-dot {
+  display: inline-block;
+  margin-right: 5px;
+}
+.live-terminal-bar button {
+  color: var(--text-muted);
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 1.45rem;
+  cursor: pointer;
+}
+.live-terminal-bar button:hover {
+  color: var(--accent-red);
+}
+#terminal-mode {
+  color: var(--accent-cyan);
+}
+.live-terminal-output {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.terminal-line {
+  margin-bottom: 4px;
+}
+.terminal-command {
+  color: var(--accent-cyan);
+}
+.terminal-error {
+  color: var(--accent-red);
+}
+.terminal-success {
+  color: var(--accent);
+}
+.live-terminal-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--bento-element-bg);
+  color: var(--accent);
+  font:
+    0.82rem "JetBrains Mono",
+    monospace;
+}
+#terminal-input {
+  flex: 1;
+  min-width: 0;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font: inherit;
+}
+.matrix-rain {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  pointer-events: none;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.86);
+  color: #39ff88;
+  font:
+    700 16px/1 "JetBrains Mono",
+    monospace;
+  white-space: pre;
+  opacity: 0.85;
+  animation: matrix-flicker 0.8s steps(2) infinite;
+}
+
+/* Canvas Matrix effect: controls (z-index 500) and the terminal remain above
+   the rain. The stop button is always available as an emergency exit. */
+#matrix-canvas { position: fixed; inset: 0; z-index: 400; width: 100vw; height: 100vh; background: #000; }
+#matrix-stop { position: fixed; right: 16px; bottom: 16px; z-index: 100002; padding: 10px 14px; border: 1px solid #39ff88; border-radius: 6px; background: #061008; color: #39ff88; font: 700 .72rem 'JetBrains Mono', monospace; cursor: pointer; box-shadow: 0 0 18px rgba(57,255,136,.35); }
+#matrix-stop:hover, #matrix-stop:focus-visible { background: #39ff88; color: #061008; outline: none; }
+@keyframes matrix-flicker {
+  50% {
+    opacity: 0.55;
+  }
+}
+.kernel-panic {
+  position: fixed;
+  inset: 0;
+  z-index: 200000;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  background: #050505;
+  color: #ff4545;
+  font:
+    700 clamp(0.85rem, 2vw, 1.25rem)/1.7 "JetBrains Mono",
+    monospace;
+  white-space: pre-wrap;
+  text-align: center;
+}
+body.terminal-xray {
+  filter: grayscale(1) contrast(1.35) hue-rotate(105deg);
+}
+body.terminal-flip > :not(#live-terminal):not(.matrix-rain):not(.kernel-panic) {
+  transform: rotate(180deg);
+}
+@media (max-width: 640px) {
+  .live-terminal {
+    padding: 10px;
+  }
+  .live-terminal-window {
+    height: calc(100vh - 20px);
+    border-radius: 9px;
+  }
+  .live-terminal-output,
+  .live-terminal-input-row {
+    font-size: 0.72rem;
+  }
+  #terminal-prompt {
+    white-space: nowrap;
+  }
+}
+
+/* The terminal is a desktop enhancement only. */
+@media (max-width: 780px) {
+  #terminal-toggle { display: none !important; }
+}
