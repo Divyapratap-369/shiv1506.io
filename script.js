@@ -284,8 +284,14 @@ btnModern.addEventListener('click', () => setLayout('modern'));
 const classicNavToggle = document.getElementById('classic-nav-toggle');
 const classicNavLinks = document.getElementById('classic-nav-links');
 
-classicNavToggle.addEventListener('click', () => classicNavLinks.classList.toggle('open'));
-classicNavLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => classicNavLinks.classList.remove('open')));
+function setClassicMenu(open) {
+    classicNavLinks.classList.toggle('open', open);
+    classicNavToggle.classList.toggle('is-open', open);
+    classicNavToggle.setAttribute('aria-expanded', String(open));
+    classicNavToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+}
+classicNavToggle.addEventListener('click', () => setClassicMenu(!classicNavLinks.classList.contains('open')));
+classicNavLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setClassicMenu(false)));
 
 const sections = ['about', 'experience', 'projects', 'contact'].map(id => document.getElementById(id));
 const navAnchors = classicNavLinks.querySelectorAll('a');
@@ -434,7 +440,8 @@ document.addEventListener('click', function(event) {
         // If the user clicks outside the menu AND not on the hamburger button itself
         if (!navMenu.contains(event.target) && hamburgerBtn && !hamburgerBtn.contains(event.target)) {
             // Remove the open classes to slide it back off-screen
-            navMenu.classList.remove('active', 'show', 'open');
+            navMenu.classList.remove('active', 'show');
+            setClassicMenu(false);
         }
     }
 });
